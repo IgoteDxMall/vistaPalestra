@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/index.css" />
+    <link rel="stylesheet" href="../css/finalizar.css" />
+
+    <script
+      src="https://kit.fontawesome.com/23139fef71.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <title>Vista Palestra - Cadastro</title>
+  </head>
+  <body>
+        <!--Loader-->
+        <div class="loader">
+          <div class="loader-content">
+            <div class="spinner"></div>
+          </div>
+        </div>
+    
+        <!--Modal-->
+    <div class="modal d-none">
+      <div class="modal-content">
+        <h2 class="modal-title">[title]</h2>
+        <p class="modal-msg">[msg]</p>
+        <button class="modal-btn">Fechar</button>
+      </div>
+    </div>
+    
+    <div class="container">
+      <div class="content-left">
+        <div class="finish-box">
+          <h2>Finalizar Pedido</h2>
+          <h3 id="text-username">
+            [username], Sua compra já está sendo finalizada. Antes de
+            prosseguir confirme seus dados.
+          </h3>
+          <form id="orderForm" onsubmit="finalizarPedido(event)">
+            <div class="input-box">
+              <input type="text" placeholder="Insira o seu Endereço:" id="endereço" />
+              <i class="fa-solid fa-map-pin"></i>
+            </div>
+            <div class="input-box">
+              <input type="text" placeholder="Insira o seu CEP:" id="cep" maxlength="8" />
+              <i class="fa-solid fa-map"></i>
+            </div>
+            <select id="tipo-transporte">
+              <option value="default" selected>Entrega padrão</option>
+              <option value="speed">Entrega rápida - Taxa: R$12</option>
+            </select>
+            <a id="calcfrete"href="#"  onclick="calcFrete()">Calcular Frete</a>
+            <button type="submit" class="button-outlined" id="finishOrder" disabled>
+              Finalizar Pedido
+            </button>
+          </form>
+          <button id="return" onclick="window.location.href='/assets/pages/catalogo.html'"><i class="fa-solid fa-arrow-left"></i>Voltar</button>
+        </div>
+      </div>
+      <div class="content-right">
+        <h2 id="text-pedido">Pedido: [numpedido]</h2>
+        <div class="shopping-cart">
+          <ul class="shopping-cart-body"></ul>
+        </div>
+        <h3 id="text-frete">Frete: R$ [frete]</h3>
+        <h2 id="text-total">Total: R$ [total]</h2>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/dist/js.cookie.min.js"></script>
+    <script src="../scripts/finalizar.js"></script>
+    <script src="../scripts/index.js"></script>
+    <script src="../scripts/modules/shop/orders.js" type="module"></script>
+    <script src="../scripts/modules/shop/catalog.js" type="module"></script>
+  </body>
+</html>

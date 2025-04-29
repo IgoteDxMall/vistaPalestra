@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/index.css" />
+    <link rel="stylesheet" href="../css/catalogo.css" />
+
+    <script
+      src="https://kit.fontawesome.com/23139fef71.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <title>Vista Palestra - Catalogo</title>
+  </head>
+  <body>
+    <!--Loader-->
+    <div class="loader">
+      <div class="loader-content">
+        <div class="spinner"></div>
+      </div>
+    </div>
+
+    <!--Modal-->
+    <div class="modal d-none">
+      <div class="modal-content">
+        <h2 class="modal-title">[title]</h2>
+        <p class="modal-msg">[msg]</p>
+        <button class="modal-btn">Fechar</button>
+      </div>
+    </div>
+
+    <!-- Shopping Cart -->
+
+    <div class="shopping-cart d-none">
+      <div class="shopping-cart-header">
+        <h2>Carrinho</h2>
+        <p id="shopping-cart-quantity">(0 itens)</p>
+      </div>
+      <ul class="shopping-cart-body"></ul>
+      <div class="shopping-cart-footer">
+        <div class="shopping-cart-footer-left">
+          <h2 id="shopping-cart-total">Total:</h2>
+        </div>
+        <div class="shopping-cart-footer-right">
+          <button disabled id="shopping-cart-button" onclick="window.location.href='/assets/pages/finalizar.html'">
+            Finalizar
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- user dropdown -->
+
+    <div class="user-dropdown d-none" style="color: white;">
+      <ul class="user-dropdown-content">
+        <li><button>Minhas compras<i class="fa-solid fa-bag-shopping"></i></button></li>
+        <li><button onclick="exit()">Sair<i class="fa-solid fas fa-person-running"></i></button></li>
+      </ul>
+    </div>
+
+    <header>
+      <a href="/"
+        ><img src="/assets/img/VistaPalestra.svg" alt="brand" class="nav-brand"
+      /></a>
+      <nav>
+        <button id="btn-cart" title="Carrinho" onclick="openCart()">
+          <i class="fa-solid fa-cart-shopping"></i>
+        </button>
+        <button id="btn-usr" title="Conta" onclick="openUserDropdown()">
+          <i class="fa-solid fa-user"></i>
+        </button>
+      </nav>
+    </header>
+
+    <div class="container">
+      <div class="catalog-header">
+        <h1>Catálogo:</h1>
+        <div class="searchbar">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input
+            type="text"
+            class="search-input"
+            placeholder="Pesquisar"
+            oninput="search(event)"
+          />
+        </div>
+      </div>
+      <div class="content">
+        <ul class="items"></ul>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/dist/js.cookie.min.js"></script>
+    <script src="../scripts/index.js"></script>
+    <script src="../scripts/catalogo.js"></script>
+    <script src="../scripts/modules/shop/catalog.js" type="module"></script>
+  </body>
+</html>
